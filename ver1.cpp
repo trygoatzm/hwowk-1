@@ -5,10 +5,12 @@ int main() {
     int sum = 0;
     std::cout << "Введите 5 целых чисел:\n";
     for (int i = 0; i < SIZE; i++) {
-        std::cin >> numbers[i];
+        if (!(std::cin >> numbers[i])) {
+            std::cout << "Ошибка ввода.\n";
+            return 1;
+        }
     }
-
-    for (int i = 0; i <= SIZE; i++) {
+    for (int i = 0; i < SIZE; i++) {
         sum += numbers[i];
     }
     std::cout << "Сумма: " << sum << '\n';
